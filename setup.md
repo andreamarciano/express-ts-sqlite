@@ -13,17 +13,19 @@ npm init -y
 ### Runtime dependencies
 
 ```bash
-npm install express bcryptjs jsonwebtoken
+npm install express bcryptjs jsonwebtoken dotenv
 ```
 
 - `bcryptjs`: Library used to hash and compare passwords securely.
 
 - `jsonwebtoken`: Library for generating and verifying JSON Web Tokens (JWT), used for user authentication.
 
+- `dotenv`: Loads environment variables from a `.env` file into `process.env`.
+
 ### Development dependencies
 
 ```bash
-npm install -D typescript ts-node @types/node @types/express @types/bcryptjs @types/jsonwebtoken nodemon
+npm install -D typescript ts-node @types/node @types/express @types/bcryptjs @types/jsonwebtoken @types/dotenv nodemon
 ```
 
 ---
@@ -81,9 +83,16 @@ Update `tsconfig.json` with the following:
 
 ```ts
 import express, { Request, Response } from "express";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+const jwtSecret = process.env.JWT_SECRET as string;
+
+console.log("PORT from .env:", PORT);
+console.log("JWT_SECRET from .env:", jwtSecret);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello from TypeScript + Express!");
@@ -92,6 +101,13 @@ app.get("/", (req: Request, res: Response) => {
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
 });
+```
+
+**`.env`**
+
+```ini
+PORT=3000
+JWT_SECRET=superSecretTokenKey123
 ```
 
 ---
