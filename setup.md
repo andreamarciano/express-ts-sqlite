@@ -13,13 +13,17 @@ npm init -y
 ### Runtime dependencies
 
 ```bash
-npm install express
+npm install express bcryptjs jsonwebtoken
 ```
+
+- `bcryptjs`: Library used to hash and compare passwords securely.
+
+- `jsonwebtoken`: Library for generating and verifying JSON Web Tokens (JWT), used for user authentication.
 
 ### Development dependencies
 
 ```bash
-npm install -D typescript ts-node @types/node @types/express nodemon
+npm install -D typescript ts-node @types/node @types/express @types/bcryptjs @types/jsonwebtoken nodemon
 ```
 
 ---
@@ -54,14 +58,19 @@ Update `tsconfig.json` with the following:
 ## 🗂️ Step 4: Project Structure
 
 ```text
-/firstProject
-├── /dist                # Compiled JS output (auto-generated)
-├── /node_modules        # Installed packages
-├── /src                 # Source files
+/MyBackendProject
+├── /public
+├── /src
+│   ├── /middleware
+│   │   └── auth.ts
+│   ├── /routes
+│   │   ├── api.ts
+│   │   └── auth.ts
+│   ├── db.ts
 │   └── index.ts         # Main entry point
+├── .env
 ├── package.json
-├── package-lock.json
-├── tsconfig.json
+└── tsconfig.json
 ```
 
 ---
