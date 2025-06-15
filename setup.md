@@ -25,7 +25,7 @@ npm install express bcryptjs jsonwebtoken dotenv
 ### Development dependencies
 
 ```bash
-npm install -D typescript ts-node @types/node @types/express @types/bcryptjs @types/jsonwebtoken @types/dotenv nodemon
+npm install -D typescript ts-node @types/node @types/express @types/bcryptjs @types/jsonwebtoken nodemon
 ```
 
 ---
