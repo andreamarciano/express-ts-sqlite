@@ -8,7 +8,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "Backend with SQLite",
+  "description": "A full stack todo application that uses a NodeJS backend, a SQLite3 database and JWT Authentication.",
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "better-sqlite3": "^11.10.0",
