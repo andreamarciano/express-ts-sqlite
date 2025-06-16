@@ -2,6 +2,10 @@ import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 import path from "path";
 
+import authRoutes from "./routes/auth";
+import todoRoutes from "./routes/todo";
+import authMiddleware from "./middleware/auth";
+
 dotenv.config();
 
 const app = express();
@@ -18,6 +22,10 @@ app.use(express.json());
 app.get("/", (req: Request, res: Response) => {
   res.sendFile("index.html", { root: publicPath });
 });
+
+/* Routes */
+app.use("/auth", authRoutes);
+app.use("/todos", authMiddleware, todoRoutes);
 
 /* Start Backend */
 app.listen(PORT, () => {

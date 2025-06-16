@@ -13,7 +13,7 @@ npm init -y
 ### Runtime dependencies
 
 ```bash
-npm install express bcryptjs jsonwebtoken dotenv
+npm install express bcryptjs jsonwebtoken dotenv better-sqlite3
 ```
 
 - `bcryptjs`: Library used to hash and compare passwords securely.
@@ -22,10 +22,12 @@ npm install express bcryptjs jsonwebtoken dotenv
 
 - `dotenv`: Loads environment variables from a `.env` file into `process.env`.
 
+- `better-sqlite3`: Fast and simple SQLite3 database client with synchronous API.
+
 ### Development dependencies
 
 ```bash
-npm install -D typescript ts-node @types/node @types/express @types/bcryptjs @types/jsonwebtoken nodemon
+npm install -D typescript ts-node @types/node @types/express @types/bcryptjs @types/jsonwebtoken @types/better-sqlite3 nodemon
 ```
 
 ---
@@ -66,8 +68,8 @@ Update `tsconfig.json` with the following:
 │   ├── /middleware
 │   │   └── auth.ts
 │   ├── /routes
-│   │   ├── api.ts
-│   │   └── auth.ts
+│   │   ├── auth.ts
+│   │   └── todo.ts
 │   ├── db.ts
 │   └── index.ts         # Main entry point
 ├── .env

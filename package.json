@@ -11,12 +11,14 @@
   "description": "Backend with SQLite",
   "dependencies": {
     "bcryptjs": "^3.0.2",
+    "better-sqlite3": "^11.10.0",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
+    "@types/better-sqlite3": "^7.6.13",
     "@types/express": "^5.0.3",
     "@types/jsonwebtoken": "^9.0.9",
     "@types/node": "^24.0.1",
